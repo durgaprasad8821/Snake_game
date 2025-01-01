@@ -80,6 +80,12 @@ const init = () => {
 changeFoodPosition() 
 
 setIntervalId = setInterval(init , 100)
-highScore.innerText = JSON.parse(localStorage.getItem("score"))[0];
+
+try{
+    highScore.innerText = JSON.parse(localStorage.getItem("score"))[0];
+}catch(error){
+    console.log(error);
+}
+
 
 document.addEventListener('keydown' , changePosition);
